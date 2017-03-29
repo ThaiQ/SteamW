@@ -24,12 +24,12 @@ public class Robot extends IterativeRobot {
 	Victor TopL = new Victor(1); // motors
 	Victor BotL = new Victor(2);
 	Victor TopR = new Victor(3);
-	Victor BotR = new Victor(4);
+	Victor BotR = new Victor(4); //BotR
 
 	RobotDrive run = new RobotDrive(TopL, BotL, TopR, BotR);
 
 	Spark shoot = new Spark (5);
-	Spark feed = new Spark (6);
+	Spark feed = new Spark (6);  //feed
 
 	Joystick stick1 = new Joystick(1); // Controllers
 	Joystick stick2 = new Joystick(2);
@@ -116,11 +116,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-		if(time.get()<0.785){
-			run.arcadeDrive(0.6,0);
-		}else{
-			
-		}
 	}
 
 	@Override
@@ -144,6 +139,7 @@ public class Robot extends IterativeRobot {
 
 		if (stick1.getRawButton(fly)){shoot.set(-1); }
 		else { shoot.set(0); }
+		
 		
 		if (stick1.getRawButton(forward)){
 			feed.set(0.2);
